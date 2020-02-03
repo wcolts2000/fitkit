@@ -17,7 +17,6 @@ router.post('/register', (req, res, next) => {
     password: hashedPassword,
     email
   };
-  console.log(`\nUSER: ${JSON.stringify(user)} \n`);
 
   db.insert(user)
     .then(userId => {
@@ -32,6 +31,26 @@ router.post('/register', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+
+// LOGIN USER
+router.post('/login', (req, res, next) => {
+  const { password, email } = req.body;
+
+  if (!password || !email) {
+    return res.status(400).json({ err: 'invalid request' });
+  }
+
+  db.findUser(email)
+    .then(user => {
+      if (user && bcrypt.compareSync(password, user.password)) {
+        const token = auth.generateToken(user);
+        res.json({ message: `Welcome ${user.username}`, token });
+      } else {
+        res.status(401).json({ message: 'Invalid Credentials' });
+      }
+    })
+    .catch(err => next(err));
 });
 
 module.exports = router;
