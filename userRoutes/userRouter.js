@@ -8,7 +8,7 @@ router.post('/register', (req, res, next) => {
   const { username, password, email } = req.body;
 
   if (!username || !password || !email) {
-    return res.status(400).json({ err: 'invalid request.' });
+    return res.status(400).json({ err: 'Invalid Request.' });
   }
 
   const hashedPassword = bcrypt.hashSync(password, 12);

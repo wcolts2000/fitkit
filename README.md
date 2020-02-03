@@ -57,8 +57,7 @@ _example:_
 
 ```
 {
-  "error": true,
-  "message": "Invalid request."
+  "err": "Invalid Request."
 }
 ```
 
