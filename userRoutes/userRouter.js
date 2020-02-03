@@ -22,7 +22,7 @@ router.post('/register', (req, res, next) => {
   db.insert(user)
     .then(userId => {
       const token = auth.generateToken({
-        id: userId,
+        id: userId[0],
         username,
         password: hashedPassword,
         email
