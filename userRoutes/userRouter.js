@@ -38,7 +38,7 @@ router.post('/login', (req, res, next) => {
   const { password, email } = req.body;
 
   if (!password || !email) {
-    return res.status(400).json({ err: 'invalid request' });
+    return res.status(400).json({ err: 'Invalid Request' });
   }
 
   db.findUser(email)
@@ -47,7 +47,7 @@ router.post('/login', (req, res, next) => {
         const token = auth.generateToken(user);
         res.json({ message: `Welcome ${user.username}`, token });
       } else {
-        res.status(401).json({ message: 'Invalid Credentials' });
+        res.status(400).json({ err: 'Invalid Credentials' });
       }
     })
     .catch(err => next(err));
