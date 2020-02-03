@@ -1,7 +1,11 @@
 const request = require('supertest');
 const server = require('../api/server');
+const db = require('../data/configKnex');
 
 describe('user auth router', () => {
+  beforeEach(async () => {
+    await db('users').truncate();
+  });
   describe('Registering New user', () => {
     it('POST TO /users/register should return 201 status', async () => {
       const expected = 201;
