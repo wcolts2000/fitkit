@@ -10,6 +10,7 @@ exports.up = function(knex) {
       .notNullable();
 
     users.string('password', 255).notNullable();
+    users.timestamps(true, true);
   });
 };
 
