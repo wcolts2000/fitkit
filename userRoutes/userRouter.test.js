@@ -18,13 +18,15 @@ describe('user auth router', () => {
     await db('users').truncate();
   });
   describe('New user Register and login', () => {
-    it('should return 201 status when sent a POST to /users/register ', async () => {
+    it('should return 201 status and token when sent a POST to /users/register ', async () => {
       const expected = 201;
       let res = await request(server)
         .post('/users/register')
         .send(user);
+      const token = res.body.token;
 
       expect(res.status).toEqual(expected);
+      expect(token).not.toBe(undefined);
     });
     it('should return a 200 status and token when a valid user logs in via POST to /users/login', async () => {
       const expected = 200;
