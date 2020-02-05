@@ -19,7 +19,7 @@ module.exports = {
 
     return jwt.sign(payload, secret, options);
   },
-  protected: function(req, res, next) {
+  protectedRoute: function(req, res, next) {
     const token = req.headers.authorization;
 
     if (token) {

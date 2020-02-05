@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const db = require('./userHelpers');
-const { admin, generateToken, protected } = require('../middleware/auth');
+const { admin, generateToken, protectedRoute } = require('../middleware/auth');
 
 // REGISTER NEW USER
 router.post('/register', (req, res, next) => {
@@ -53,7 +53,7 @@ router.post('/login', (req, res, next) => {
 });
 
 // Update User
-router.put('/:id', protected, (req, res, next) => {
+router.put('/:id', protectedRoute, (req, res, next) => {
   const { id } = req.params;
   const changedUser = req.body;
   // logged in users id lives on the sub key from the token they provide
@@ -74,7 +74,7 @@ router.put('/:id', protected, (req, res, next) => {
 });
 
 // Delete User
-router.delete('/:id', protected, (req, res, next) => {
+router.delete('/:id', protectedRoute, (req, res, next) => {
   const { id } = req.params;
   // users id lives on the sub key from the token they provide
   const { sub } = req.decodedToken;
@@ -93,7 +93,7 @@ router.delete('/:id', protected, (req, res, next) => {
 });
 
 // GET ALL USERS
-router.get('/', protected, admin, (req, res, next) => {
+router.get('/', protectedRoute, admin, (req, res, next) => {
   db.getAll()
     .then(users => res.status(200).json({ users }))
     .catch(err => next(err));
