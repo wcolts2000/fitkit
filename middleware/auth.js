@@ -5,7 +5,8 @@ module.exports = {
   generateToken: function(user) {
     const payload = {
       sub: user.id,
-      username: user.username
+      username: user.username,
+      email: user.email
     };
 
     const secret =
@@ -32,6 +33,14 @@ module.exports = {
       });
     } else {
       res.status(401).json({ message: 'no token' });
+    }
+  },
+  admin: function(req, res, next) {
+    const { email } = req.decodedToken;
+    if (email === 'wcolts2000@gmail.com') {
+      next();
+    } else {
+      res.status(401).json({ err: 'unauthorized' });
     }
   }
 };
