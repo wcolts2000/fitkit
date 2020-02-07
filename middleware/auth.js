@@ -1,6 +1,8 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
+const adminWhitelist = ['wcolts2000@gmail.com'];
+
 module.exports = {
   generateToken: function(user) {
     const payload = {
@@ -46,7 +48,7 @@ module.exports = {
   },
   admin: function(req, res, next) {
     const { email } = req.decodedToken;
-    if (email === 'wcolts2000@gmail.com') {
+    if (adminWhitelist.includes(email)) {
       next();
     } else {
       res.status(401).json({ message: 'Unauthorized' });

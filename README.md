@@ -2,7 +2,7 @@
 
 ## NAVIGATION
 
-[Register User](#register) | [Login](#login) | [Environment Variables](#envVar) |
+[Register User](#register) | [Login](#login) | [Get User](#getUser) | [Get All Users](#getAllUsers) | [Put User](#putUser) | [Del User](#delUser) | [Environment Variables](#envVar) |
 
 # Base URL
 
@@ -57,7 +57,7 @@ _example:_
 
 ```
 {
-  "err": "Invalid Request."
+  "message": "Invalid Request."
 }
 ```
 
@@ -112,7 +112,7 @@ _example:_
 
 ```
 {
-  "err": "Invalid Credentials."
+  "message": "Invalid Credentials."
 }
 ```
 
@@ -120,9 +120,155 @@ _example:_
 
 ```
 {
-  "err": "Invalid Request."
+  "message": "Invalid Request."
 }
 ```
+
+---
+
+## GET SINGLE USER <a name="getUser"></a>
+
+### Returns a single user matching users id
+
+_Method Url: /users/:id_
+
+_HTTP method: [GET]_
+
+### Headers
+
+| name           | type    | required | description                    |
+| -------------- | ------- | -------- | ------------------------------ |
+| Authentication | token   | Yes      | must attach to request headers |
+| Authentication | private | Yes      | users id must match to access  |
+
+### Response
+
+**200 (OK)**
+
+> If you're id matches the endpoints id, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+  {
+    "id": 1,
+    "username": "john doe",
+    "email": "johndoe@email.com"
+    "password": "$2a$12$y1WMR1AM69O3MHEeygGG1ex7m0uPm6UvHwE5KEYnVq9MgUCrL5Bna"
+  }
+```
+
+---
+
+## GET ALL USERS <a name="getAllUsers"></a>
+
+### Retrieves all users if you are admin whitelisted
+
+_Method Url: /users_
+
+_HTTP method: [GET]_
+
+### Headers
+
+| name           | type  | required | description                    |
+| -------------- | ----- | -------- | ------------------------------ |
+| Authentication | token | Yes      | must attach to request headers |
+| Authentication | admin | Yes      | must be in admin whitelist     |
+
+### Response
+
+**200 (OK)**
+
+> If you are an admin, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+[
+  {
+    "id": 1,
+    "username": "john doe",
+    "email": "johndoe@email.com"
+    "password": "$2a$12$y1WMR1AM69O3MHEeygGG1ex7m0uPm6UvHwE5KEYnVq9MgUCrL5Bna"
+  },
+  {
+    "id": 2,
+    "username": "jane doe",
+    "email": "jdee@gmail.com",
+    "password": "$2a$12$FEIARePDsflFFNLtrhK.G.NK4ftLVX/gIX908GrX.ryCK46f8IToW"
+  }
+]
+```
+
+---
+
+## PUT USER <a name="putUser"></a>
+
+### Updates a single user matching users id
+
+_Method Url: /users/:id_
+
+_HTTP method: [PUT]_
+
+### Headers
+
+| name           | type    | required | description                    |
+| -------------- | ------- | -------- | ------------------------------ |
+| Authentication | token   | Yes      | must attach to request headers |
+| Authentication | private | Yes      | users id must match to access  |
+
+### Body
+
+| name     | type   | required | description |
+| -------- | ------ | -------- | ----------- |
+| username | String | No       |             |
+| email    | String | No       | unique      |
+
+> Can change either username or email or both
+
+_example:_
+
+```
+{
+  username: "johnny doe",
+  email: "jdoe@email.com"
+}
+```
+
+### Response
+
+**200 (OK)**
+
+> If you're id matches the endpoints id, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+  1
+```
+
+---
+
+## DEL USER <a name="delUser"></a>
+
+### Delete your user acct
+
+_Method Url: /users/:id_
+
+_HTTP method: [DEL]_
+
+### Headers
+
+| name           | type    | required | description                    |
+| -------------- | ------- | -------- | ------------------------------ |
+| Authentication | token   | Yes      | must attach to request headers |
+| Authentication | private | Yes      | users id must match to access  |
+
+### Response
+
+**200 (OK)**
+
+> If you're id matches the endpoints id, the endpoint will return an HTTP response with a status code 200 and a body as below.
+
+```
+  1
+```
+
+---
 
 # Environment Variables <a name="envVar"></a>
 
