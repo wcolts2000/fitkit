@@ -99,4 +99,18 @@ router.get('/', protectedRoute, admin, (req, res, next) => {
     .catch(err => next(err));
 });
 
+// GET SINGLE USER
+router.get('/:id', protectedRoute, (req, res, next) => {
+  const { id } = req.params;
+  // console.log(id);
+  return db
+    .findById(id)
+    .then(user => {
+      if (user) {
+        res.status(200).json({ user });
+      }
+    })
+    .catch(err => next(err));
+});
+
 module.exports = router;
