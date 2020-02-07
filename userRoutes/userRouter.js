@@ -42,7 +42,7 @@ router.post('/login', (req, res, next) => {
   const { password, email } = req.body;
 
   if (!password || !email) {
-    return res.status(400).json({ err: 'Invalid Request' });
+    return res.status(400).json({ message: 'Invalid Request' });
   }
 
   db.findByEmail(email)
@@ -51,7 +51,7 @@ router.post('/login', (req, res, next) => {
         const token = generateToken(user);
         res.json({ message: `Welcome ${user.username}`, token });
       } else {
-        res.status(400).json({ err: 'Invalid Credentials' });
+        res.status(400).json({ message: 'Invalid Credentials' });
       }
     })
     .catch(err => next(err));
@@ -62,7 +62,7 @@ router.put('/:id', protectedRoute, personalRoute, (req, res, next) => {
   const { id } = req.params;
   const changedUser = req.body;
   if (!changedUser) {
-    return res.status(400).json({ err: 'invalid request' });
+    return res.status(400).json({ message: 'Invalid Request' });
   }
 
   db.findById(id)

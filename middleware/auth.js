@@ -25,14 +25,14 @@ module.exports = {
     if (token) {
       jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
         if (err) {
-          res.status(401).json({ message: 'invalid token' });
+          res.status(401).json({ message: 'Invalid Token' });
         } else {
           req.decodedToken = decodedToken;
           next();
         }
       });
     } else {
-      res.status(401).json({ message: 'no token' });
+      res.status(401).json({ message: 'No Token' });
     }
   },
   personalRoute: function(req, res, next) {
@@ -41,7 +41,7 @@ module.exports = {
     if (tokenId == id) {
       next();
     } else {
-      res.status(401).json({ message: 'unauthorized' });
+      res.status(401).json({ message: 'Unauthorized' });
     }
   },
   admin: function(req, res, next) {
@@ -49,7 +49,7 @@ module.exports = {
     if (email === 'wcolts2000@gmail.com') {
       next();
     } else {
-      res.status(401).json({ message: 'unauthorized' });
+      res.status(401).json({ message: 'Unauthorized' });
     }
   }
 };
