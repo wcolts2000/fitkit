@@ -107,7 +107,7 @@ router.get('/:id', protectedRoute, (req, res, next) => {
     .findById(id)
     .then(user => {
       if (user) {
-        res.status(200).json({ user });
+        res.status(200).json(user);
       }
     })
     .catch(err => next(err));

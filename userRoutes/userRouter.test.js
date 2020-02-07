@@ -81,7 +81,7 @@ describe('user auth router', () => {
       .get('/users/1')
       .set('Authorization', userObj.body.token)
       .expect(200);
-    expect(newUser.body.user.email).toBe('wcoltsy@gmail.com');
+    expect(newUser.body.email).toBe('wcoltsy@gmail.com');
     updatedUser = await request(server)
       .put('/users/1')
       .set('Authorization', userObj.body.token)
@@ -91,6 +91,6 @@ describe('user auth router', () => {
       .get('/users/1')
       .set('Authorization', userObj.body.token)
       .expect(200);
-    expect(newUser.body.user.username).toBe('sammy');
+    expect(newUser.body.username).toBe('sammy');
   });
 });
