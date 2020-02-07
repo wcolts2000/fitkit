@@ -97,7 +97,7 @@ router.delete('/:id', protectedRoute, personalRoute, (req, res, next) => {
 // GET ALL USERS
 router.get('/', protectedRoute, admin, (req, res, next) => {
   db.getAll()
-    .then(users => res.status(200).json({ users }))
+    .then(users => res.status(200).json(users))
     .catch(err => next(err));
 });
 

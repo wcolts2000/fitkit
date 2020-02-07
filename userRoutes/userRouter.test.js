@@ -19,7 +19,7 @@ const regUser = async () =>
     .send(user);
 
 describe('user auth router', () => {
-  beforeEach(async () => {
+  afterEach(async () => {
     await db('users').truncate();
   });
   describe('POST /users/register & /users/login', () => {

@@ -28,5 +28,6 @@ module.exports = {
     return db('users')
       .where({ id })
       .del();
-  }
+  },
+  db
 };

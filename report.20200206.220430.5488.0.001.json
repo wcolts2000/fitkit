@@ -1,0 +1,354 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200206.220430.5488.0.001.json",
+    "dumpEventTime": "2020-02-06T22:04:30Z",
+    "dumpEventTimeStamp": "1581055470780",
+    "processId": 5488,
+    "cwd": "C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server\\node_modules\\.bin\\\\..\\jest\\bin\\jest.js",
+      "--watchAll",
+      "--verbose",
+      "--runInBand",
+      "--detectOpenHandles"
+    ],
+    "nodejsVersion": "v12.4.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.4.0",
+      "v8": "7.4.288.27-node.18",
+      "uv": "1.29.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.38.0",
+      "napi": "4",
+      "llhttp": "1.1.3",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.4.0/node-v12.4.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.4.0/node-v12.4.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.4.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18363",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "host": "SEAN-WIN10"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff7afef64a9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+9161"
+    },
+    {
+      "pc": "0x00007ff7afef9d94",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+23732"
+    },
+    {
+      "pc": "0x00007ff7afef8db8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+19672"
+    },
+    {
+      "pc": "0x00007ff7affe256b",
+      "symbol": "uv_loop_fork+48251"
+    },
+    {
+      "pc": "0x00007ff7b031a56e",
+      "symbol": "v8::internal::Parser::ReportMessageAt+206"
+    },
+    {
+      "pc": "0x00007ff7b02ee5ea",
+      "symbol": "v8::internal::wasm::StreamingDecoder::Fail+666"
+    },
+    {
+      "pc": "0x00007ff7b0384a3c",
+      "symbol": "v8::internal::Heap::CreateFillerObjectAt+2972"
+    },
+    {
+      "pc": "0x00007ff7b038c7af",
+      "symbol": "v8::internal::LocalEmbedderHeapTracer::NotifyV8MarkingWorklistWasEmpty+5375"
+    },
+    {
+      "pc": "0x00007ff7b0382e23",
+      "symbol": "v8::internal::Heap::CollectGarbage+1235"
+    },
+    {
+      "pc": "0x00007ff7b0381524",
+      "symbol": "v8::internal::GCTracer::AddScopeSample+1316"
+    },
+    {
+      "pc": "0x00007ff7b03c2153",
+      "symbol": "v8::internal::Factory::NewFillerObject+67"
+    },
+    {
+      "pc": "0x00007ff7b06e8cc6",
+      "symbol": "v8::internal::OptimizingCompileDispatcher::Unblock+116966"
+    },
+    {
+      "pc": "0x00007ff7b0b84196",
+      "symbol": "v8::internal::NativesCollection<0>::GetScriptsSource+662454"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2165833728,
+    "totalCommittedMemory": 2165833728,
+    "usedMemory": 1983373544,
+    "availableMemory": 50143952,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 524288,
+        "capacity": 523976,
+        "used": 31712,
+        "available": 492264
+      },
+      "new_space": {
+        "memorySize": 16777216,
+        "committedMemory": 16777216,
+        "capacity": 8383616,
+        "used": 85344,
+        "available": 8298272
+      },
+      "old_space": {
+        "memorySize": 2002378752,
+        "committedMemory": 2002378752,
+        "capacity": 1853522392,
+        "used": 1852534160,
+        "available": 988232
+      },
+      "code_space": {
+        "memorySize": 14843904,
+        "committedMemory": 14843904,
+        "capacity": 12699808,
+        "used": 12699808,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 121638912,
+        "committedMemory": 121638912,
+        "capacity": 108427280,
+        "used": 108427280,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 9621504,
+        "committedMemory": 9621504,
+        "capacity": 9591784,
+        "used": 9591784,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3456,
+        "used": 3456,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 8383616,
+        "used": 0,
+        "available": 8383616
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 1173.72,
+    "kernelCpuSeconds": 307.078,
+    "cpuConsumptionPercent": 0.865897,
+    "maxRss": 2268618752,
+    "pageFaults": {
+      "IORequired": 3866471,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 81270,
+      "writes": 49555
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "ANDROID_HOME": "C:\\Users\\T1700\\AppData\\Local\\Android\\Sdk",
+    "APPDATA": "C:\\Users\\T1700\\AppData\\Roaming",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "132194547959891678",
+    "ChocolateyToolsLocation": "C:\\tools",
+    "CLASSPATH": ".;",
+    "COLORTERM": "truecolor",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "SEAN-WIN10",
+    "COMSPEC": "C:\\WINDOWS\\system32\\cmd.exe",
+    "DB_ENV": "test",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "EXEPATH": "C:\\Program Files\\Git\\bin",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "HOME": "C:\\Users\\T1700",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\T1700",
+    "INIT_CWD": "C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server",
+    "INTEL_DEV_REDIST": "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_211",
+    "JEST_WORKER_ID": "1",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\T1700\\AppData\\Local",
+    "LOGONSERVER": "\\\\SEAN-WIN10",
+    "MIC_LD_LIBRARY_PATH": "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic",
+    "MSYSTEM": "MINGW64",
+    "NODE": "C:\\Program Files\\nodejs\\node.exe",
+    "NODE_ENV": "test",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"test\"],\"original\":[\"test\"]}",
+    "npm_config_bin_links": "true",
+    "npm_config_ignore_optional": "",
+    "npm_config_ignore_scripts": "",
+    "npm_config_init_license": "MIT",
+    "npm_config_init_version": "1.0.0",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "npm_config_save_prefix": "^",
+    "npm_config_strict_ssl": "true",
+    "npm_config_user_agent": "yarn/1.21.1 npm/? node/v12.4.0 win32 x64",
+    "npm_config_version_commit_hooks": "true",
+    "npm_config_version_git_message": "v%s",
+    "npm_config_version_git_sign": "",
+    "npm_config_version_git_tag": "true",
+    "npm_config_version_tag_prefix": "v",
+    "npm_execpath": "C:\\Program Files (x86)\\Yarn\\bin\\yarn.js",
+    "npm_lifecycle_event": "test",
+    "npm_lifecycle_script=cross-env DB_ENV": "test jest --watchAll --verbose --runInBand --detectOpenHandles",
+    "npm_node_execpath": "C:\\Program Files\\nodejs\\node.exe",
+    "npm_package_dependencies_bcryptjs": "^2.4.3",
+    "npm_package_dependencies_cors": "^2.8.5",
+    "npm_package_dependencies_dotenv": "^8.2.0",
+    "npm_package_dependencies_express": "^4.17.1",
+    "npm_package_dependencies_helmet": "^3.21.2",
+    "npm_package_dependencies_jsonwebtoken": "^8.5.1",
+    "npm_package_dependencies_knex": "^0.20.8",
+    "npm_package_dependencies_morgan": "^1.9.1",
+    "npm_package_dependencies_pg": "^7.18.1",
+    "npm_package_dependencies_sqlite3": "^4.1.1",
+    "npm_package_description": "Server to help track food intake and exercise progress",
+    "npm_package_devDependencies_cross_env": "^7.0.0",
+    "npm_package_devDependencies_jest": "^25.1.0",
+    "npm_package_devDependencies_nodemon": "^2.0.2",
+    "npm_package_devDependencies_supertest": "^4.0.2",
+    "npm_package_jest_testEnvironment": "node",
+    "npm_package_license": "ISC",
+    "npm_package_main": "index.js",
+    "npm_package_name": "fitnizkit",
+    "npm_package_readmeFilename": "README.md",
+    "npm_package_scripts_dev": "nodemon index.js",
+    "npm_package_scripts_start": "node index.js",
+    "npm_package_scripts_test=cross-env DB_ENV": "test jest --watchAll --verbose --runInBand --detectOpenHandles",
+    "npm_package_version": "1.0.0",
+    "NUMBER_OF_PROCESSORS": "8",
+    "NVM_HOME": "C:\\ProgramData\\nvm",
+    "NVM_SYMLINK": "C:\\Program Files\\nodejs",
+    "OneDrive": "C:\\Users\\T1700\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\T1700\\OneDrive",
+    "OS": "Windows_NT",
+    "PATH": "C:\\Users\\T1700\\AppData\\Local\\Temp\\yarn--1580884457368-0.30578209700416403;C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server\\node_modules\\.bin;C:\\Users\\T1700\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\T1700\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python37\\Scripts;C:\\Python37;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\vim\\vim80;C:\\ProgramData\\nvm;C:\\Program Files\\nodejs;C:\\Program Files\\postgresql\\10\\bin;C:\\Program Files\\Java\\jdk1.8.0_211\\bin;C:\\Users\\T1700\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\PostgreSQL\\11\\lib;C:\\Program Files\\PostgreSQL\\11\\bin;C:\\tools\\php74;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\Yarn\\bin;C:\\Program Files\\dotnet;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn;C:\\Users\\T1700\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\T1700\\AppData\\Roaming\\npm;C:\\Program Files\\heroku\\bin;C:\\Users\\T1700\\AppData\\Local\\hyper\\app-3.0.2\\resources\\bin;C:\\tools\\dart-sdk\\bin;C:\\Users\\T1700\\AppData\\Roaming\\Pub\\Cache\\bin;C:\\tools\\Cmder;C:\\Users\\T1700\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\T1700\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\T1700\\AppData\\Roaming\\Python\\Python37\\Scripts;C:\\Users\\T1700\\AppData\\Roaming\\Python\\Python37;C:\\Program Files\\PostgreSQL\\11\\lib;C:\\Program Files\\PostgreSQL\\11\\bin;C:\\Users\\T1700\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\T1700\\AppData\\Local\\Yarn\\bin",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.PY;.PYW",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 60 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "3c03",
+    "ProgramData": "C:\\ProgramData",
+    "PROGRAMFILES": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "/c/Users/T1700/Desktop/dev/meal-tracker/server",
+    "PYTHONHOME": "C:\\Python37",
+    "SESSIONNAME": "Console",
+    "SHLVL": "2",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\T1700\\AppData\\Local\\Temp",
+    "TERM_PROGRAM": "vscode",
+    "TERM_PROGRAM_VERSION": "1.41.1",
+    "TMP": "C:\\Users\\T1700\\AppData\\Local\\Temp",
+    "USERDOMAIN": "SEAN-WIN10",
+    "USERDOMAIN_ROAMINGPROFILE": "SEAN-WIN10",
+    "USERNAME": "T1700",
+    "USERPROFILE": "C:\\Users\\T1700",
+    "WINDIR": "C:\\WINDOWS",
+    "YARN_WRAP_OUTPUT": "false",
+    "_": "/usr/bin/winpty"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\Program Files\\AVAST Software\\Avast\\aswhook.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\System32\\UMPDC.dll",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "\\\\?\\C:\\Users\\T1700\\Desktop\\dev\\meal-tracker\\server\\node_modules\\sqlite3\\lib\\binding\\node-v72-win32-x64\\node_sqlite3.node",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll"
+  ]
+}
