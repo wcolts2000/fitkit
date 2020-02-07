@@ -1,7 +1,12 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const db = require('./userHelpers');
-const { admin, generateToken, protectedRoute } = require('../middleware/auth');
+const {
+  admin,
+  generateToken,
+  protectedRoute,
+  personalRoute
+} = require('../middleware/auth');
 
 // REGISTER NEW USER
 router.post('/register', (req, res, next) => {
@@ -53,12 +58,10 @@ router.post('/login', (req, res, next) => {
 });
 
 // Update User
-router.put('/:id', protectedRoute, (req, res, next) => {
+router.put('/:id', protectedRoute, personalRoute, (req, res, next) => {
   const { id } = req.params;
   const changedUser = req.body;
-  // logged in users id lives on the sub key from the token they provide
-  const { sub } = req.decodedToken;
-  if (id != sub || !changedUser) {
+  if (!changedUser) {
     return res.status(400).json({ err: 'invalid request' });
   }
 
@@ -74,13 +77,8 @@ router.put('/:id', protectedRoute, (req, res, next) => {
 });
 
 // Delete User
-router.delete('/:id', protectedRoute, (req, res, next) => {
+router.delete('/:id', protectedRoute, personalRoute, (req, res, next) => {
   const { id } = req.params;
-  // users id lives on the sub key from the token they provide
-  const { sub } = req.decodedToken;
-  if (id != sub) {
-    return res.status(401).json({ err: 'unauthorized' });
-  }
   db.findById(id)
     .then(user => {
       if (user) {
@@ -100,9 +98,8 @@ router.get('/', protectedRoute, admin, (req, res, next) => {
 });
 
 // GET SINGLE USER
-router.get('/:id', protectedRoute, (req, res, next) => {
+router.get('/:id', protectedRoute, personalRoute, (req, res, next) => {
   const { id } = req.params;
-  // console.log(id);
   return db
     .findById(id)
     .then(user => {

@@ -35,12 +35,21 @@ module.exports = {
       res.status(401).json({ message: 'no token' });
     }
   },
+  personalRoute: function(req, res, next) {
+    const { id } = req.params;
+    const tokenId = req.decodedToken.sub;
+    if (tokenId == id) {
+      next();
+    } else {
+      res.status(401).json({ message: 'unauthorized' });
+    }
+  },
   admin: function(req, res, next) {
     const { email } = req.decodedToken;
     if (email === 'wcolts2000@gmail.com') {
       next();
     } else {
-      res.status(401).json({ err: 'unauthorized' });
+      res.status(401).json({ message: 'unauthorized' });
     }
   }
 };
