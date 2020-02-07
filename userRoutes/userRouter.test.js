@@ -103,4 +103,20 @@ describe('user auth router', () => {
       .expect(200);
     expect(newUser.body.username).toBe('sammy');
   });
+
+  describe('DEL /users/:id', () => {
+    it('returns a 401 when no token is provided', async () => {
+      await regUser();
+      return request(server)
+        .del('/users/1')
+        .expect(401);
+    });
+    it('returns 200 and a 1 when successfully deleting user', async () => {
+      const userObj = await regUser();
+      return request(server)
+        .del('/users/1')
+        .set('Authorization', userObj.body.token)
+        .expect(200, '1');
+    });
+  });
 });
