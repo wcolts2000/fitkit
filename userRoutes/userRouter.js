@@ -71,6 +71,8 @@ router.put('/:id', protectedRoute, personalRoute, (req, res, next) => {
         db.updateUser(id, changedUser)
           .then(count => res.json(count))
           .catch(err => next(err));
+      } else {
+        res.status(404).json({ message: 'Not Found' });
       }
     })
     .catch(err => next(err));
@@ -85,6 +87,8 @@ router.delete('/:id', protectedRoute, personalRoute, (req, res, next) => {
         db.deleteUser(id)
           .then(count => res.json(count))
           .catch(err => next(err));
+      } else {
+        res.status(404).json({ message: 'Not Found' });
       }
     })
     .catch(err => next(err));
@@ -105,6 +109,8 @@ router.get('/:id', protectedRoute, personalRoute, (req, res, next) => {
     .then(user => {
       if (user) {
         res.status(200).json(user);
+      } else {
+        res.status(404).json({ message: 'Not Found' });
       }
     })
     .catch(err => next(err));
