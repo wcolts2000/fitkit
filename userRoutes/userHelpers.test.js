@@ -9,11 +9,10 @@ const user = {
 
 const emailString = 'testemail@email.com';
 
+afterEach(async () => {
+  await db('users').truncate();
+});
 describe('User helper model', () => {
-  afterEach(async () => {
-    await db('users').truncate();
-  });
-
   describe('getAll function', () => {
     it('returns a list of users', async () => {
       let userCount = await userHelper.getAll();

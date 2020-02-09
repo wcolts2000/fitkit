@@ -18,10 +18,8 @@ const regUser = async () =>
     .post('/users/register')
     .send(user);
 
+afterEach(async () => await db('users').truncate());
 describe('user auth router', () => {
-  afterEach(async () => {
-    await db('users').truncate();
-  });
   describe('POST /users/register & /users/login', () => {
     it('should return 201 status and token when sent a POST to /users/register ', async () => {
       const expected = 201;

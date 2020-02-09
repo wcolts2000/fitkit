@@ -1,7 +1,5 @@
 # FitnizKit Backend | Meal and Fitness Tracking App
 
-## NAVIGATION
-
 [Register User](#register) | [Login](#login) | [Get User](#getUser) | [Get All Users](#getAllUsers) | [Put User](#putUser) | [Del User](#delUser) | [Environment Variables](#envVar) |
 
 # Base URL
@@ -243,7 +241,7 @@ _example:_
 
 ---
 
-## DEL USER <a name="delUser"></a>
+## DELETE USER <a name="delUser"></a>
 
 ### Delete your user acct
 
