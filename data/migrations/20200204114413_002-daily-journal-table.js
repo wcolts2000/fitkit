@@ -10,7 +10,7 @@ exports.up = function(knex) {
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
-    tbl.text('name', 'longtext').notNullable();
+    tbl.text('entry', 'longtext').notNullable();
     tbl.float('weight');
     tbl.string('image_url');
     tbl.timestamps(true, true);

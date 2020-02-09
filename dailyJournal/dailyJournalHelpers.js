@@ -1,8 +1,9 @@
 const db = require('../data/configKnex');
 
 module.exports = {
-  insert: journalEntry => {
+  insert: (journalEntry, userId) => {
     return db('daily_journal')
+      .where({ userId })
       .returning('id')
       .insert(journalEntry);
   },
